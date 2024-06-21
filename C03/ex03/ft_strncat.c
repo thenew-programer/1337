@@ -1,19 +1,16 @@
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	i;
-	unsigned int	j;
+#include "ft_strncat.h"
 
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-	while (j < nb && src[j] != '\0')
-	{
-		dest[i + j] = src [j];
-		j++;
-	}
-	dest[i + j] = '\0';
-	return (dest);
+char *ft_strncat(char *dest, char *src, unsigned int nb) {
+  char new_str[1000];
+
+  int i, j;
+  for (i = 0;dest[i]; i++) {
+    new_str[i] = dest[i];
+  }
+  for (j = 0; j < nb && src[j]; j++, i++) {
+    new_str[i] = src[j];
+  }
+  new_str[i] = '\0';
+  dest = new_str;
+  return dest;
 }

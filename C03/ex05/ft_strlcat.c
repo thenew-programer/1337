@@ -1,38 +1,24 @@
-int	ft_strlen(char *str)
-{
-	int	i;
+#include "ft_strlcat.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+unsigned int ft_strlen(char *str) {
+  unsigned int i;
+  for (i = 0; str[i]; i++) {}
+  return (i);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	dlen;
-	unsigned int	slen;
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size) {
 
-	i = 0;
-	j = 0;
-	while (dest[j] != '\0')
-	{
-		j++;
-	}
-	dlen = j;
-	slen = ft_strlen(src);
-	if (size == 0 || size <= dlen)
-		return (slen + size);
-	while (src [i] != '\0' && i < size - dlen - 1)
-	{
-		dest[j] = src[i];
-		i++;
-		j++;
-	}
-	dest[j] = '\0';
-	return (dlen + slen);
+  unsigned int dest_len, src_len;
+  int i, j;
+
+  dest_len = ft_strlen(dest);
+  src_len = ft_strlen(src);
+
+  for (i = dest_len, j = 0; i < size - 1; i++, j++) {
+    dest[i] = src[j];
+  }
+  dest[size + 1] = '\0';
+
+
+  return (dest_len + src_len);
 }
