@@ -1,16 +1,19 @@
-#include "ft_strcat.h"
+#include <stdio.h>
 
 char *ft_strcat(char *dest, char *src) {
-  char new_str[1000];
-
   int i, j;
+
   for (i = 0; dest[i]; i++) {
-    new_str[i] = dest[i];
   }
-  for (j = 0;src[j]; j++, i++) {
-    new_str[i] = src[j];
-  }
-  new_str[i] = '\0';
-  dest = new_str;
+  for (j = 0; src[j]; i++, j++)
+    dest[i] = src[j];
+  dest[i] = '\0';
   return dest;
+}
+
+int main() {
+  char str1[100] = "Youssef-";
+  char str2[] = "Bouryal!";
+  ft_strcat(str1, str2);
+  printf("%s\n", str1);
 }

@@ -1,29 +1,38 @@
-#include "ft_strstr.h"
+#include <stdio.h>
 
 int ft_strlen(char *str) {
   int i;
-
-  for (i = 0; str[i]; i++) {}
-  
-  return (i);
+  for (i = 0; str[i]; i++) {
+  }
+  return i;
 }
-
 char *ft_strstr(char *str, char *to_find) {
-  int str_len, tf_len;
+  int i, j, haystack_len, needle_len;
 
-  str_len = ft_strlen(str);
-  tf_len = ft_strlen(to_find);
-
-  for (int i = 0; i <= (str_len - tf_len); i++) {
-    int j;
-
-    for (j = 0; j < tf_len; j++) {
-      if (to_find[j] != str[i + j])
+  // if to_find is empty return the haystack and exit
+  if (ft_strlen(to_find) == 0)
+    return str;
+  // finding the needle in the haystac
+  haystack_len = ft_strlen(str);
+  needle_len = ft_strlen(to_find);
+  for (i = 0; i <= (haystack_len - needle_len); i++) {
+    for (j = 0; j < needle_len; j++) {
+      if (str[i + j] != to_find[j])
         break;
     }
-
-    if (j == tf_len)
-      return (str + i);
+    if (j == needle_len)
+      return &str[i];
   }
-  return (0);
+  // Noting is found, return Null
+  return 0;
+}
+int main() {
+  char str1[] = "Hello World! world";
+  char needle[] = "world";
+  char *ret = ft_strstr(str1, needle);
+  if (ret)
+    printf("%s\n", ret);
+  else {
+    printf("Not Found\n");
+  }
 }
