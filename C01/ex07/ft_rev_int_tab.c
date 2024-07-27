@@ -4,12 +4,6 @@ void ft_swap(int *a, int *b) {
   tmp = *a;
   *a = *b;
   *b = tmp;
-  /* Another way*/
-  /*
-   *a = *a + *b;
-   *b = *a - *b;
-   *a = *a - *b;
-   */
 }
 void ft_rev_int_tab(int *tab, int size) {
   int i, j = size - 1;
