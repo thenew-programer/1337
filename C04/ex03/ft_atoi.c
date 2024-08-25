@@ -22,7 +22,7 @@ int convert_str_to_int(char *numbers);
 
 /* Main function*/
 int main() {
-  char str[] = "  ---+--+1234ab567";
+  char str[] = " w ---+--+1234ab567";
   printf("str -> %s\nnumber -> %d\n", str, ft_atoi(str));
   return (0);
 }

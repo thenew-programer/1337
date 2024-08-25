@@ -24,7 +24,9 @@ void ft_show_tab(struct s_stock_str *);
 // }
 
 static char *ft_rev_str(char *str, int size) {
-  int i, j;
+  int i;
+  int j;
+
   for (i = 0, j = size - 1; i < j; i++, j--) {
     char tmp = str[i];
     str[i] = str[j];
