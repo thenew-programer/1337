@@ -28,7 +28,7 @@ int ft_ultimate_range(int **range, int min, int max) {
 
 int main() {
   int *range;
-  ft_ultimate_range(&range, 99, 99);
+  ft_ultimate_range(&range, 99, 100);
   printf("\t\tRANGE\n");
   if (!range) {
     printf("None\n");
